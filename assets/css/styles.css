@@ -1,0 +1,257 @@
+/* Checkout Page Styles */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary-color: #dd61cd;
+    --secondary-color: #f9a8ff;
+    --text-color: #333;
+    --light-text: #666;
+    --white: #fff;
+    --light-bg: #f9f9f9;
+    --border-color: #eee;
+    --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    --border-radius: 10px;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--light-bg);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+header {
+    background-color: var(--white);
+    box-shadow: var(--shadow);
+    padding: 15px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+}
+
+.checkout-container {
+    max-width: 1200px;
+    margin: 100px auto 50px;
+    padding: 0 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--primary-color);
+    font-size: 2.5rem;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: var(--primary-color);
+    font-size: 1.8rem;
+}
+
+.checkout-summary, .checkout-form {
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+.cart-items {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.cart-items li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.cart-items li:last-child {
+    border-bottom: none;
+}
+
+.item-name {
+    flex: 1;
+}
+
+.item-quantity {
+    margin: 0 20px;
+}
+
+.cart-totals {
+    margin-top: 20px;
+    border-top: 2px solid var(--border-color);
+    padding-top: 20px;
+}
+
+.cart-totals div {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.total {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: var(--primary-color);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+.payment-methods {
+    margin-bottom: 30px;
+}
+
+.payment-method {
+    margin-bottom: 15px;
+}
+
+.payment-method input[type="radio"] {
+    margin-right: 10px;
+}
+
+.payment-method label {
+    font-weight: 500;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn:hover {
+    background-color: var(--secondary-color);
+}
+
+.btn-primary {
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+}
+
+.btn-primary:hover {
+    background: linear-gradient(to right, var(--secondary-color), var(--primary-color));
+}
+
+footer {
+    background-color: var(--white);
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 50px;
+    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .checkout-container {
+        padding: 0 15px;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    .checkout-summary, .checkout-form {
+        padding: 20px;
+    }
+    
+    .btn {
+        width: 100%;
+    }
+}
+
+/* PayMongo specific styles */
+.paymongo-container {
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    padding: 30px;
+    margin: 30px auto;
+    max-width: 600px;
+}
+
+.paymongo-header {
+    background-color: #5A31F4;
+    color: var(--white);
+    padding: 20px;
+    text-align: center;
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+    margin: -30px -30px 20px;
+}
+
+.paymongo-amount {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.payment-success {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(40, 167, 69, 0.1);
+    border-radius: var(--border-radius);
+    margin: 20px 0;
+}
+
+.payment-success i {
+    font-size: 3rem;
+    color: #28a745;
+    margin-bottom: 10px;
+}
+
+.payment-error {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(220, 53, 69, 0.1);
+    border-radius: var(--border-radius);
+    margin: 20px 0;
+}
+
+.payment-error i {
+    font-size: 3rem;
+    color: #dc3545;
+    margin-bottom: 10px;
+}

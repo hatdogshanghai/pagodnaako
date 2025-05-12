@@ -1,0 +1,100 @@
+.install-banner {
+  display: flex;
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 15px;
+  z-index: 999;
+  align-items: center;
+  animation: slide-up 0.3s ease-out;
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.install-banner-icon {
+  font-size: 30px;
+  color: var(--container-color);
+  margin-right: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.install-banner-content {
+  flex: 1;
+}
+
+.install-banner-title {
+  font-weight: bold;
+  margin-bottom: 5px;
+  font-size: 1rem;
+}
+
+.install-banner-text {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.install-banner-actions {
+  display: flex;
+  gap: 10px;
+  margin-left: 10px;
+}
+
+.install-button {
+  background-color: var(--container-color);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.install-button:hover {
+  background-color: #c84db6;
+}
+
+.close-banner {
+  background: none;
+  border: none;
+  color: #999;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 0 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-banner:hover {
+  color: #666;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .install-banner {
+    bottom: 70px; /* Adjust for mobile navigation */
+  }
+}
+
+/* For devices in standalone mode (installed PWA) */
+@media (display-mode: standalone) {
+  .install-banner {
+    display: none !important;
+  }
+}

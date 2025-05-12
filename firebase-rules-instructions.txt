@@ -1,0 +1,52 @@
+FIREBASE SECURITY RULES INSTRUCTIONS
+
+To fix the "PERMISSION_DENIED" error in your checkout process, you need to update your Firebase Realtime Database security rules. Here's how to do it:
+
+1. Go to the Firebase Console: https://console.firebase.google.com/
+2. Select your project "yogeelogin"
+3. In the left sidebar, click on "Realtime Database"
+4. Click on the "Rules" tab
+5. Replace the current rules with the following:
+
+{
+  "rules": {
+    ".read": "auth != null",
+    ".write": "auth != null",
+    "users": {
+      "$uid": {
+        ".read": "$uid === auth.uid || root.child('adminUsers').child(auth.uid).exists()",
+        ".write": "$uid === auth.uid || root.child('adminUsers').child(auth.uid).exists()",
+        "orders": {
+          ".read": "$uid === auth.uid || root.child('adminUsers').child(auth.uid).exists()",
+          ".write": "$uid === auth.uid || root.child('adminUsers').child(auth.uid).exists()"
+        }
+      }
+    },
+    "centralOrders": {
+      ".read": "auth != null",
+      ".write": "auth != null"
+    },
+    "adminUsers": {
+      ".read": "root.child('adminUsers').child(auth.uid).exists()",
+      ".write": "root.child('adminUsers').child(auth.uid).exists()"
+    }
+  }
+}
+
+6. Click "Publish" to save the rules
+
+These rules will:
+- Allow authenticated users to read and write to the database
+- Allow users to read and write their own data
+- Allow users to create and manage their own orders
+- Allow admin users to access all user data
+- Allow all authenticated users to read and write to the centralOrders collection
+
+If you continue to experience permission issues after updating the rules, please try the following:
+
+1. Make sure you're properly authenticated before trying to checkout
+2. Try logging out and logging back in
+3. Clear your browser cache and cookies
+4. If using the app in incognito/private mode, try using a regular browser window
+
+The changes we've made to the checkout.html and profile.html files include fallback mechanisms that will allow orders to be saved locally if Firebase permissions are still an issue, ensuring you can still complete the checkout process.

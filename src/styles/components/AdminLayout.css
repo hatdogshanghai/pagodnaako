@@ -1,0 +1,23 @@
+.admin-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f5f7fa;
+}
+
+.admin-main {
+  flex: 1;
+  padding: 30px 0;
+}
+
+/* Override any customer-facing styles */
+.admin-layout .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Ensure admin styles take precedence */
+.admin-layout * {
+  box-sizing: border-box;
+}

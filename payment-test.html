@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PayMongo Payment Test</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #5A31F4;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #5A31F4;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #4526c3;
+        }
+        .result {
+            margin-top: 30px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f5f5f5;
+            display: none;
+        }
+        .success {
+            border-color: #28a745;
+            background-color: rgba(40, 167, 69, 0.1);
+        }
+        .error {
+            border-color: #dc3545;
+            background-color: rgba(220, 53, 69, 0.1);
+        }
+        .payment-link {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .payment-link a {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #5A31F4;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        .payment-link a:hover {
+            background-color: #4526c3;
+        }
+        pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>PayMongo Payment Test</h1>
+        
+        <div class="form-group">
+            <label for="amount">Amount (in PHP)</label>
+            <input type="number" id="amount" value="100" min="1" step="1">
+        </div>
+        
+        <div class="form-group">
+            <label for="description">Description</label>
+            <input type="text" id="description" value="Test payment from TasteMakers">
+        </div>
+        
+        <button id="createPayment">Create Payment Link</button>
+        
+        <div id="result" class="result">
+            <h3>Result:</h3>
+            <div id="resultContent"></div>
+            <div id="paymentLink" class="payment-link"></div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('createPayment').addEventListener('click', async function() {
+            const amount = parseInt(document.getElementById('amount').value);
+            const description = document.getElementById('description').value;
+            
+            if (!amount || isNaN(amount) || amount < 1) {
+                alert('Please enter a valid amount');
+                return;
+            }
+            
+            const resultDiv = document.getElementById('result');
+            const resultContent = document.getElementById('resultContent');
+            const paymentLinkDiv = document.getElementById('paymentLink');
+            
+            resultDiv.className = 'result';
+            resultDiv.style.display = 'block';
+            resultContent.innerHTML = 'Processing payment request...';
+            paymentLinkDiv.innerHTML = '';
+            
+            try {
+                // Convert PHP amount to centavos (smallest currency unit)
+                const amountInCentavos = amount * 100;
+                
+                // Make request to checkout.php
+                const response = await fetch('checkout.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        amount: amountInCentavos,
+                        description: description,
+                        reference_number: 'TEST-' + Math.floor(1000 + Math.random() * 9000)
+                    }),
+                });
+                
+                const data = await response.json();
+                
+                if (data.success && data.checkout_url) {
+                    resultDiv.classList.add('success');
+                    resultContent.innerHTML = `
+                        <p><strong>Success!</strong> Payment link created.</p>
+                        <p><strong>Payment ID:</strong> ${data.id}</p>
+                        <p><strong>Amount:</strong> ₱${amount.toFixed(2)}</p>
+                        <p><strong>Description:</strong> ${description}</p>
+                    `;
+                    
+                    paymentLinkDiv.innerHTML = `
+                        <a href="${data.checkout_url}" target="_blank">Go to Payment Page</a>
+                    `;
+                } else {
+                    resultDiv.classList.add('error');
+                    resultContent.innerHTML = `
+                        <p><strong>Error:</strong> ${data.error || 'Failed to create payment link'}</p>
+                        <pre>${JSON.stringify(data, null, 2)}</pre>
+                    `;
+                }
+            } catch (error) {
+                resultDiv.classList.add('error');
+                resultContent.innerHTML = `
+                    <p><strong>Error:</strong> ${error.message}</p>
+                `;
+            }
+        });
+    </script>
+</body>
+</html>

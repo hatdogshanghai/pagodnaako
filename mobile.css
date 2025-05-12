@@ -1,0 +1,268 @@
+/* Mobile-specific styles for Yogee */
+
+/* App-like experience styles */
+.standalone-mode {
+    /* Remove browser UI elements when in standalone mode */
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    user-select: none;
+}
+
+/* Mobile navigation bar (bottom) */
+.mobile-nav {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    padding: 10px 0;
+    border-top: 1px solid #eee;
+}
+
+.mobile-nav-items {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.mobile-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #666;
+    font-size: 10px;
+    padding: 5px 0;
+}
+
+.mobile-nav-item i {
+    font-size: 24px;
+    margin-bottom: 4px;
+}
+
+.mobile-nav-item.active {
+    color: #6a11cb;
+}
+
+/* Install banner */
+.install-banner {
+    display: none;
+    position: fixed;
+    bottom: 70px;
+    left: 10px;
+    right: 10px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    padding: 15px;
+    z-index: 999;
+    align-items: center;
+}
+
+.install-banner-icon {
+    font-size: 30px;
+    color: #6a11cb;
+    margin-right: 15px;
+}
+
+.install-banner-content {
+    flex: 1;
+}
+
+.install-banner-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.install-banner-text {
+    font-size: 12px;
+    color: #666;
+}
+
+.install-banner-actions {
+    display: flex;
+    gap: 10px;
+    margin-left: 10px;
+}
+
+.install-button {
+    background-color: #6a11cb;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.close-banner {
+    background: none;
+    border: none;
+    color: #999;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 0 5px;
+}
+
+/* Connection status indicator */
+#connection-status {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    z-index: 1001;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+
+#connection-status.online {
+    background-color: #4CAF50;
+    color: white;
+}
+
+#connection-status.offline {
+    background-color: #F44336;
+    color: white;
+}
+
+#connection-status:hover {
+    opacity: 1;
+}
+
+/* Pull to refresh indicator */
+.pull-to-refresh {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f5f5f5;
+    transform: translateY(-100%);
+    transition: transform 0.3s;
+    z-index: 999;
+}
+
+.pull-to-refresh.visible {
+    transform: translateY(0);
+}
+
+.pull-to-refresh i {
+    font-size: 24px;
+    color: #6a11cb;
+    animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+    /* Show mobile navigation */
+    .mobile-nav {
+        display: block;
+    }
+    
+    /* Add padding to bottom of body to account for mobile nav */
+    body {
+        padding-bottom: 60px;
+    }
+    
+    /* Hide desktop navigation */
+    header .navbar {
+        display: none;
+    }
+    
+    /* Adjust header for mobile */
+    header {
+        height: auto;
+        padding: 10px 0;
+    }
+    
+    .nav {
+        padding: 0 15px;
+    }
+    
+    .yogee {
+        width: 80px !important;
+        margin: 0 !important;
+    }
+    
+    .welcome-text, .nav-icons .bx {
+        margin-bottom: 0 !important;
+    }
+    
+    /* Adjust home section for mobile */
+    .home {
+        padding: 8rem 0 2rem;
+    }
+    
+    .home-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .home-text h1 {
+        font-size: 3rem;
+    }
+    
+    .home-text p {
+        font-size: 1.2rem;
+    }
+    
+    .home-text h3 {
+        font-size: 1.8rem;
+    }
+    
+    .btn {
+        margin: 0 auto;
+    }
+    
+    /* Adjust menu sections for mobile */
+    .feature-menu-content, .item-content {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    
+    .menu-box {
+        margin-bottom: 30px;
+    }
+    
+    /* Adjust footer for mobile */
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    /* Adjust cart for mobile */
+    .card {
+        width: 90%;
+        max-width: none;
+        height: 80vh;
+    }
+}
+
+/* Tablet adjustments */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .home-text h1 {
+        font-size: 5rem;
+    }
+    
+    .feature-menu-content {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .item-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

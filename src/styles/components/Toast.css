@@ -1,0 +1,119 @@
+/* Toast Notification Styles */
+#toast-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.toast {
+  background-color: white;
+  color: var(--text-color);
+  border-radius: 8px;
+  padding: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  width: 300px;
+  max-width: 90vw;
+  overflow: hidden;
+  transform: translateX(120%);
+  transition: transform 0.3s ease;
+  opacity: 0;
+}
+
+.toast-visible {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.toast-hiding {
+  transform: translateX(120%);
+  opacity: 0;
+}
+
+.toast-header {
+  display: flex;
+  align-items: center;
+  padding: 12px 15px;
+  background-color: rgba(0, 0, 0, 0.02);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.toast-header i {
+  font-size: 1.2rem;
+  margin-right: 10px;
+}
+
+.toast-title {
+  flex: 1;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.toast-close {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #999;
+  padding: 0;
+  margin-left: 10px;
+  transition: color 0.2s;
+}
+
+.toast-close:hover {
+  color: #333;
+}
+
+.toast-body {
+  padding: 12px 15px;
+  font-size: 0.9rem;
+}
+
+/* Cart toast specific styles */
+.cart-toast .toast-header {
+  border-left: 4px solid var(--container-color);
+}
+
+.cart-toast .toast-header i {
+  color: var(--container-color);
+}
+
+/* Animation for toast notifications */
+@keyframes slideIn {
+  from {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 576px) {
+  #toast-container {
+    top: 10px;
+    right: 10px;
+    left: 10px;
+    width: auto;
+  }
+  
+  .toast {
+    width: 100%;
+  }
+}

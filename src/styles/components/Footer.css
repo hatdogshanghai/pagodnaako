@@ -1,0 +1,123 @@
+footer {
+  background-color: var(--bg-color);
+  padding: 4rem 0 2rem;
+  margin-top: 4rem;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.footer-box h2 {
+  font-size: 2rem;
+  font-family: var(--font-family-2);
+  color: var(--text-alter-color);
+  margin-bottom: 1rem;
+}
+
+.footer-box h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.footer-box h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 30px;
+  height: 2px;
+  background-color: var(--container-color);
+}
+
+.footer-box p {
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+  color: #666;
+}
+
+.social {
+  display: flex;
+  gap: 1rem;
+}
+
+.social a {
+  width: 40px;
+  height: 40px;
+  background-color: var(--white-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: var(--container-color);
+  transition: 0.3s;
+}
+
+.social a:hover {
+  background-color: var(--container-color);
+  color: var(--white-color);
+  transform: translateY(-3px);
+  text-decoration: none;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.footer-links a {
+  font-size: 0.9rem;
+  color: #666;
+  transition: 0.3s;
+}
+
+.footer-links a:hover {
+  color: var(--container-color);
+  transform: translateX(5px);
+}
+
+.contact, .opening-hours {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.contact span, .opening-hours span {
+  font-size: 0.9rem;
+  color: #666;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.contact i {
+  font-size: 1.1rem;
+  color: var(--container-color);
+}
+
+.copyright {
+  text-align: center;
+  padding-top: 2rem;
+  margin-top: 2rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  font-size: 0.9rem;
+  color: #666;
+}
+
+@media (max-width: 975px) {
+  .footer-content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+  }
+}

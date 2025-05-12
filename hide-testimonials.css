@@ -1,0 +1,70 @@
+/* CSS to hide testimonials section */
+#testimonials,
+.testimonials,
+section.testimonials,
+div.testimonials,
+h2.testimonials,
+h1.testimonials,
+[id*="testimonial"],
+[class*="testimonial"] {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    width: 0 !important;
+    overflow: hidden !important;
+    opacity: 0 !important;
+    position: absolute !important;
+    z-index: -9999 !important;
+}
+
+/* Hide by heading text content */
+h1, h2, h3, h4, h5, h6 {
+    visibility: visible;
+}
+
+h1:contains("Testimonials"), 
+h2:contains("Testimonials"), 
+h3:contains("Testimonials"), 
+h4:contains("Testimonials"), 
+h5:contains("Testimonials"), 
+h6:contains("Testimonials") {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+/* Hide specific section with testimonials heading */
+h1, h2, h3, h4, h5, h6 {
+    visibility: visible;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    visibility: visible;
+}
+
+h1:contains("Testimonials") ~ div,
+h2:contains("Testimonials") ~ div,
+h3:contains("Testimonials") ~ div,
+h4:contains("Testimonials") ~ div,
+h5:contains("Testimonials") ~ div,
+h6:contains("Testimonials") ~ div {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+/* Hide specific section with pink background that contains testimonials */
+div[style*="background-color: #efd1f8"],
+div[style*="background: #efd1f8"],
+div[style*="background-color: rgb(239, 209, 248)"],
+div[style*="background: rgb(239, 209, 248)"] {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+/* Hide specific section with pink background that contains testimonials */
+div[style*="background-color: #f8d1f8"],
+div[style*="background: #f8d1f8"],
+div[style*="background-color: rgb(248, 209, 248)"],
+div[style*="background: rgb(248, 209, 248)"] {
+    display: none !important;
+    visibility: hidden !important;
+}

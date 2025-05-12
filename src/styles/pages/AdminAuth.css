@@ -1,0 +1,116 @@
+/* Admin Auth Styles */
+.admin-auth-page {
+  background-color: #f5f7fa;
+  padding: 40px 0;
+}
+
+.admin-auth-page .auth-container {
+  max-width: 500px;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.admin-auth-page .auth-form-container {
+  padding: 30px;
+}
+
+.admin-auth-page .auth-title {
+  color: #2c3e50;
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.admin-auth-page .auth-error {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 12px 15px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+}
+
+.admin-auth-page .auth-form {
+  margin-bottom: 20px;
+}
+
+.admin-auth-page .form-group {
+  margin-bottom: 20px;
+}
+
+.admin-auth-page .form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+.admin-auth-page .form-group input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #dcdfe6;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.2s ease;
+}
+
+.admin-auth-page .form-group input:focus {
+  border-color: #3498db;
+  outline: none;
+}
+
+.admin-auth-page .form-group small {
+  display: block;
+  margin-top: 5px;
+  font-size: 0.8rem;
+  color: #7f8c8d;
+}
+
+.admin-auth-page .auth-btn {
+  width: 100%;
+  padding: 12px 15px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.admin-auth-page .auth-btn:hover {
+  background-color: #2980b9;
+}
+
+.admin-auth-page .auth-btn:disabled {
+  background-color: #95a5a6;
+  cursor: not-allowed;
+}
+
+.admin-auth-page .auth-links {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.admin-auth-page .auth-links p {
+  margin: 10px 0;
+  font-size: 0.9rem;
+  color: #7f8c8d;
+}
+
+.admin-auth-page .auth-links a {
+  color: #3498db;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.admin-auth-page .auth-links a:hover {
+  color: #2980b9;
+  text-decoration: underline;
+}

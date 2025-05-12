@@ -1,0 +1,58 @@
+/* Header alignment fixes */
+.profile-container {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 40px !important;
+}
+
+.welcome-text {
+  display: inline-block !important;
+  line-height: 40px !important;
+  vertical-align: middle !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.profile-icon {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 40px !important;
+  vertical-align: middle !important;
+}
+
+.profile-icon i {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.profile-image {
+  vertical-align: middle !important;
+}
+
+.nav-icons {
+  display: flex !important;
+  align-items: center !important;
+  height: 40px !important;
+}
+
+.cart-icon {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 40px !important;
+}
+
+.cart-icon i {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.auth-buttons {
+  display: flex !important;
+  align-items: center !important;
+  height: 40px !important;
+}

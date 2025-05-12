@@ -1,0 +1,94 @@
+/* Shipping Address Component Styles */
+.shipping-address-container {
+  margin-bottom: 25px;
+}
+
+.shipping-address-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.shipping-address-header i {
+  color: #4263eb;
+  font-size: 1.2rem;
+}
+
+.shipping-address-header h3 {
+  font-size: 1.1rem;
+  color: #333;
+  margin: 0;
+  font-weight: 600;
+}
+
+.shipping-address-card {
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  padding: 20px;
+  border-left: 3px solid #4263eb;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.shipping-address-card:hover {
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.address-line {
+  margin: 0 0 10px 0;
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+}
+
+.address-line:last-child {
+  margin-bottom: 0;
+}
+
+.address-line.name {
+  font-weight: 600;
+  font-size: 1.05rem;
+  margin-bottom: 12px;
+}
+
+.address-line i {
+  margin-right: 10px;
+  color: #666;
+  width: 16px;
+  text-align: center;
+  font-size: 1rem;
+}
+
+/* Form fields for address input */
+.address-form-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.address-form-container .form-group:nth-child(1),
+.address-form-container .form-group:nth-child(5) {
+  grid-column: 1 / -1;
+}
+
+.address-form-container .form-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.address-form-container .form-group label i {
+  color: #4263eb;
+  font-size: 1rem;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .address-form-container {
+    grid-template-columns: 1fr;
+  }
+}
